@@ -5,6 +5,10 @@ export default class NavSidebar extends LitElement {
 
     static styles = css`
         #sidebar{
+            /* position: fixed;
+            left: 0;
+            top: 0;
+            width: calc(var(--large) * 8); */
             display: flex;
             flex-direction: column;
             margin: 0px;

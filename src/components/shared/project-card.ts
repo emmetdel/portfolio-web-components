@@ -11,7 +11,7 @@ export default class ProjectCard extends LitElement {
             display: flex;
             flex-direction: column;
             padding: var(--small);
-            border: 1px solid var(--primay-color)
+            border: 1px solid red;
         }
     `;
 
