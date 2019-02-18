@@ -13,16 +13,22 @@ export default class PortfolioPage extends PageViewElement {
         fetch("https://api.github.com/users/emmetdel/repos")
             .then(res => res.json())
             .then(res => res.map(obj => {
-                return { name: obj.name, description: obj.description }
+                return { name: obj.name, description: obj.description, link: obj.html_url}
             }))
             .then(array => this.repos = array)
     }
 
     static styles = css`
         :host{
-            display: flex;
-            grid-template-columns: minmax(100px, 1fr);
-            border: 2px solid grey;
+            padding: 0 10px 0 10px;
+        }
+        #portfolio-page{
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-template-rows: minmax(250px, 1fr);
+            grid-column-gap: 20px;
+            grid-row-gap: 20px;
+            margin: 10px 0 10px 0;
         }
     `;
 
@@ -31,11 +37,13 @@ export default class PortfolioPage extends PageViewElement {
             return html`<p>Loading...</p>`
         }
         return html`
-            ${this.repos.map((ar: any) => 
-                html`
-                    <project-card name=${ar.name} description=${ar.description}></project-card>
-                `
-            )}
+            <div id="portfolio-page">
+                ${this.repos.map((ar: any) => 
+                    html`
+                        <project-card name=${ar.name} description=${ar.description} link=${ar.link}></project-card>
+                    `
+                )}
+            </div>
         `;
     }
 }
