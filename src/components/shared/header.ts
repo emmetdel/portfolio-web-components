@@ -3,13 +3,13 @@ import { LitElement, html, customElement, css, property } from 'lit-element';
 @customElement('header-element')
 export default class Header extends LitElement {
 
-    @property({type: String}) location = "";
+    @property({ type: String }) location = "";
 
     static styles = css`
         #header{
             display: flex;
             flex-direction: row;
-            height: 55px;
+            height: 75px;
             justify-content: space-between;
             align-items: center;
             max-width: 900px;
@@ -17,11 +17,9 @@ export default class Header extends LitElement {
             padding: 0 10px 0 10px;
             box-sizing: border-box;
         }
-        h1 > a:link, h1 > a:hover{
-            color: inherit;
-            text-decoration: none;
-            font-style: normal;
-            background-color: initial;
+        p{
+            color: var(--color-primary);
+
         }
         h1{
             font-size: var(--large);
@@ -29,6 +27,13 @@ export default class Header extends LitElement {
             padding: 0;
             margin: 0;
         }
+        /* h1 > a:link, h1 > a:hover{
+            color: inherit;
+            text-decoration: none;
+            font-style: normal;
+            background-color: initial;
+        }
+
         ul{
             display: flex;
             flex-direction: row;
@@ -57,49 +62,49 @@ export default class Header extends LitElement {
         }
         a:active{
             text-decoration: underline;
-        }
+        } */
     `;
 
-    checkForActiveLink(){
-        const portfolio = this.shadowRoot.getElementById("portfolio");
-        const cv = this.shadowRoot.getElementById("cv");
-        const writing = this.shadowRoot.getElementById("writing");
-        if(this.location.includes("portfolio")){
-            portfolio.style.textDecoration = "underline";
-            cv.style.textDecoration = "none";
-            writing.style.textDecoration = "none";
-            return;
-        }
-        if(this.location.includes("cv")){
-            portfolio.style.textDecoration = "none";
-            cv.style.textDecoration = "underline";
-            writing.style.textDecoration = "none"; 
-            return;       
-        }
-        if(this.location.includes("writing")){
-            portfolio.style.textDecoration = "none";
-            cv.style.textDecoration = "none";
-            writing.style.textDecoration = "underline";
-            return;        
-        }
+    // checkForActiveLink(){
+    //     const portfolio = this.shadowRoot.getElementById("portfolio");
+    //     const cv = this.shadowRoot.getElementById("cv");
+    //     const writing = this.shadowRoot.getElementById("writing");
+    //     if(this.location.includes("portfolio")){
+    //         portfolio.style.textDecoration = "underline";
+    //         cv.style.textDecoration = "none";
+    //         writing.style.textDecoration = "none";
+    //         return;
+    //     }
+    //     if(this.location.includes("cv")){
+    //         portfolio.style.textDecoration = "none";
+    //         cv.style.textDecoration = "underline";
+    //         writing.style.textDecoration = "none"; 
+    //         return;       
+    //     }
+    //     if(this.location.includes("writing")){
+    //         portfolio.style.textDecoration = "none";
+    //         cv.style.textDecoration = "none";
+    //         writing.style.textDecoration = "underline";
+    //         return;        
+    //     }
 
-        portfolio.style.textDecoration = "none";
-        cv.style.textDecoration = "none";
-        writing.style.textDecoration = "none";
+    //     portfolio.style.textDecoration = "none";
+    //     cv.style.textDecoration = "none";
+    //     writing.style.textDecoration = "none";
 
-    }
+    // }
 
     render() {
         return html`
             <section id="header">
-                <h1> <a href="/">Emmet Delaney</a></h1>
-                <ul>
-                    <li><a id="portfolio" href="/#/portfolio">portfolio</a></li>
-                    <li><a id="cv" href="/#/cv">cv</a></li>
-                    <li><a id="writing" href="/#/writing">writing</a></li>
-                </ul>
+                <h1>Emmet Delaney</h1>
+                <!-- <ul>
+                                                                                                                                            <li><a id="portfolio" href="/#/portfolio">portfolio</a></li>
+                                                                                                                                            <li><a id="cv" href="/#/cv">cv</a></li>
+                                                                                                                                            <li><a id="writing" href="/#/writing">writing</a></li>
+                                                                                                                                        </ul> -->
+                <p>software developer</p>
             </section>
-            ${this.checkForActiveLink()}
         `;
     }
 }

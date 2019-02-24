@@ -20,7 +20,7 @@ export default class PortfolioPage extends PageViewElement {
 
     static styles = css`
         :host{
-            padding: 0 10px 0 10px;
+            padding: 20px 10px;
         }
         #portfolio-page{
             display: grid;
@@ -28,7 +28,6 @@ export default class PortfolioPage extends PageViewElement {
             grid-template-rows: minmax(250px, 1fr);
             grid-column-gap: 20px;
             grid-row-gap: 20px;
-            margin: 10px 0 10px 0;
         }
     `;
 
