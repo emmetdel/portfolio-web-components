@@ -2,7 +2,7 @@ import { LitElement, html, customElement, css, property } from "lit-element";
 
 @customElement("header-element")
 export default class Header extends LitElement {
-  @property({ type: String }) currentPage = "";
+  @property({ type: String }) currentPage;
 
   static styles = css`
     #header {
@@ -73,24 +73,27 @@ export default class Header extends LitElement {
               class="${this.currentPage === "" ? "active-link" : ""}"
               id="portfolio"
               href="/#/"
-              >portfolio</a
             >
+              portfolio
+            </a>
           </li>
           <li>
             <a
               class="${this.currentPage === "cv" ? "active-link" : ""}"
               id="cv"
               href="/#/cv"
-              >cv</a
             >
+              cv
+            </a>
           </li>
           <li>
             <a
               class="${this.currentPage === "writing" ? "active-link" : ""}"
               id="writing"
               href="/#/writing"
-              >writing</a
             >
+              writing
+            </a>
           </li>
         </ul>
       </section>

@@ -26,12 +26,11 @@ export default class MyApp extends LitElement {
     }
   `;
 
-  @property({ type: String }) currentPage;
+  @property({ type: String }) currentPage = "";
 
   firstUpdated() {
     installRouter((location) => {
       this.currentPage = location.hash.split("#/")[1] || "";
-      console.log(this.currentPage);
     });
   }
 
