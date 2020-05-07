@@ -1,11 +1,10 @@
-import { LitElement, property, css } from 'lit-element';
+import { LitElement, property } from "lit-element";
 
 export class PageViewElement extends LitElement {
-    // Only render this page if it's actually visible.
-    shouldUpdate() {
-        return this.active;
-    }
+  // Only render this page if it's actually visible.
+  shouldUpdate() {
+    return this.active;
+  }
 
-    @property({ type: Boolean }) active: boolean;
-
+  @property({ type: Boolean }) active: boolean;
 }
